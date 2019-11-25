@@ -38,7 +38,7 @@ app.use(helmet());
 app.use('/api', postRoutes);
 
 
-// Serve static files from the React app
+//Serve static files from the React app
 //app.use(express.static(path.join(__dirname, '/../client/build')));
 
 // sanitize
