@@ -36,19 +36,16 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(helmet());
 app.use('/api', postRoutes);
+app.use((req, res, next)=>{
+    sanitize(req.body);
+    next();
+});
 
 
 //Serve static files from the React app
-//app.use(express.static(path.join(__dirname, '/../client/build')));
+//.use(express.static(path.join(__dirname, '/../client/build')));
 
-// sanitize
-// app.use(sanitize());
-// app.post('*', (req, res) => {
-//     const cleaned = req.sanitize(req.body);
-//     res.send(cleaned);
-// });
-
-//  app.get('*', (req, res) => {
+// app.get('*', (req, res) => {
 //      res.sendFile(path.join(__dirname + '/../client/build/index.html'));
 //    });
 
